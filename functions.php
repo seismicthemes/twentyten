@@ -668,6 +668,11 @@ function twentyten_theme_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	wp_enqueue_script( 'jquery' );
+	
+	wp_enqueue_script('infinite-scroll', get_template_directory_uri().'/js/infinite-scroll.pkgd.min.js', false, '3.0.4');
+	wp_enqueue_script('twentyten-js', get_template_directory_uri().'/js/twentyten.js', false, '0.1');
+
 }
 add_action('wp_enqueue_scripts', 'twentyten_theme_scripts');
 
