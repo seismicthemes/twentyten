@@ -40,7 +40,9 @@
 				?>
 				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentyten' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentyten' ); ?>"><?php printf( __( 'Proudly powered by %s.', 'twentyten' ), 'WordPress' ); ?></a>
 			</div><!-- #site-generator -->
-
+			<div id="theme-development">
+				<a href="http://www.seismicthemes.com" title="Seismic Themes WordPress Theme Development">WordPress Theme Development</a>
+			</div>
 		</div><!-- #colophon -->
 	</div><!-- #footer -->
 

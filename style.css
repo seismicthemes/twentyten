@@ -344,6 +344,10 @@ a:hover {
 	width: 1px;
 }
 
+.assistive-text {
+    display: none;
+}
+
 
 /* =Header
 -------------------------------------------------------------- */
@@ -461,6 +465,17 @@ div.menu li {
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
 	color: #fff;
+}
+/* Small menu */
+.menu-toggle {
+    color: #f1f1f1;
+    cursor: pointer;
+    font-family: sans-serif;
+    padding: 10px;
+    text-align: right;
+}
+.main-small-navigation .menu {
+    display: none;
 }
 
 
@@ -1316,26 +1331,351 @@ img#wpstats {
 	display: block;
 	margin: 0 auto 10px;
 }
+#theme-development {
+  float: right;
+  margin-right: 10px;
+}
+#theme-development a {
+  color: #666;
+  text-decoration: none;
+}
+#theme-development a:hover {
+  text-decoration: underline;
+}
 
 
-/* =Mobile Safari ( iPad, iPhone and iPod Touch )
+/* =Responsive
 -------------------------------------------------------------- */
 
-pre {
-	-webkit-text-size-adjust: 140%;
-}
-code {
-	-webkit-text-size-adjust: 160%;
-}
+#wrapper,
 #access,
-.entry-meta,
-.entry-utility,
-.navigation,
-.widget-area {
-	-webkit-text-size-adjust: 120%;
+#access .menu-header,
+div.menu,
+#colophon,
+#branding,
+#main,
+#footer {
+  width: 940px;
 }
-#site-description {
-	-webkit-text-size-adjust: none;
+
+#access {
+  max-width: 940px;
+}
+
+#main {
+    float:left;
+  }
+
+iframe, object, embed{
+  max-width: 100%;
+}
+
+.wp-caption {
+    max-width: 100% !important; /* When images are too wide for containing element, force them to fit. */
+    height: auto; /* Override height to match resized width for correct aspect ratio. */
+}
+
+.wp-caption img {
+  height: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  #wrapper {
+    margin: 20px auto;
+    width: 94%;
+  }
+  
+  #access,
+  #access .menu-header,
+  div.menu,
+  #colophon,
+  #branding,
+  #main,
+  #footer {
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  #branding  {
+    overflow:hidden;
+  }
+  
+  /* added extra lines from the next release of twentyten */
+  #content img {
+    max-width: 100%;
+  }
+  
+  /*
+  LAYOUT: Two columns
+  DESCRIPTION: Responsive.
+  940 = 720 + 220
+  100% = 76.5957447% + 23.40425535% 
+  */
+  
+  #container {
+    float: left;
+    margin: 0 -25.5319149% 0 0;
+    width: 99%;
+  }
+  #content {
+    width: 68.5957447%;
+    /*margin: 0 29.787234% 0 20px;*/
+    margin: 0 29.787234% 0 20px;
+  }
+
+  #primary,
+  #secondary {
+    overflow: hidden;
+    width: 23.40425535% /* 200px / 940px */ 
+  }
+  
+  #site-title, #site-info {
+    width:74.4680851% /* 700px / 940px */
+  }
+  
+  #footer-widget-area .widget-area,
+  #site-generator,
+  #site-description  {
+    width: 23.40425535% /* 200px / 940px */ 
+  }
+
+}
+
+
+@media screen and (max-width: 660px) {
+  #wrapper {
+    margin: 5px auto;
+    width: 90%;
+    padding: 0 3%;
+  }
+  
+  #access,
+  #access .menu-header,
+  div.menu,
+  #colophon,
+  #branding,
+  #main,
+  #footer {
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  #branding  {
+    overflow:hidden;
+  }
+
+  #site-title {
+   width: 100%;
+  }
+
+  #container {
+    float: left;
+    width: 100%;
+    overflow: auto;
+  }
+  
+  #content {
+    width: 93%;
+    margin: 0 0px 0 0px;
+  }
+
+  .alignleft, img.alignleft, #content img.alignleft, .alignright, img.alignright, #content img.alignright {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+  
+  #primary,
+  #secondary {
+    float: left;
+    overflow: hidden;
+    width: 99%; 
+  }
+  #secondary {
+    clear: left;
+  }
+
+  #site-generator, #site-description, #site-info, #site-title {
+    clear: left;
+    float: left;
+    width: 95%;
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+/* =Mobile friendly
+-------------------------------------------------------------- */
+
+
+/* landscape */
+@media screen and (max-width: 521px) {
+  #wrapper {
+    margin: 0 auto;
+    width: 90%;
+    width: 400px;
+    overflow: auto;
+  }
+  
+  #access,
+  #access .menu-header,
+  div.menu,
+  #colophon,
+  #branding,
+  #main,
+  #footer {
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  #branding  {
+    overflow:hidden;
+  }
+  
+  #site-title,
+  #site-info,
+  #site-description,
+  #site-generator   {
+    width: 100%;
+    clear: left;
+    float: left;
+    margin-top: 0;
+    padding-top:0;
+    margin-bottom: 0;
+    padding-bottom:0;
+  }
+  
+
+  #container {
+    float: left;
+    width: 100%;
+    overflow: auto;
+  }
+  #content {
+    width: 99%;
+    margin: 0 0px 0 0px;
+  }
+
+  .alignleft, img.alignleft, .alignright, img.alignright {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+
+  #primary,
+  #secondary {
+    clear: both;
+    float: left;
+    overflow: hidden;
+    width: 99%; 
+    }
+}
+
+
+/* portrait */
+@media screen and (max-width: 390px) {
+  #wrapper {
+    margin: 0 auto;
+    width: 300px;
+    overflow: auto;
+  }
+  
+  #access,
+  #access .menu-header,
+  div.menu,
+  #colophon,
+  #branding,
+  #main,
+  #footer {
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  #branding  {
+    overflow:hidden;
+  }
+  
+  #site-title,
+  #site-description,
+  #site-info,
+  #site-generator   {
+    width: 100%;
+    clear: left;
+    float: left;
+    margin-top: 0;
+    padding-top:0;
+    margin-bottom: 0;
+    padding-bottom:0;
+  }
+  
+  #access .menu-header li,
+  div.menu li {
+    margin: 0 auto;
+    text-align: justify;
+    width: 100%;
+  }
+
+  #access ul ul {
+    display: block;
+    position: inherit;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+
+  #access ul ul ul {
+    left: 0;
+  }
+
+  #access ul ul a {
+    background: #000;
+    width: 93%;
+  }
+
+  #access li:hover > a,
+  #access ul ul :hover > a {
+    background: #000;
+    color: #aaa;
+  }
+
+  /* Not ready yet
+  #access .page_item_has_children a:first-child:after {
+    content: "\25BC";
+  }
+  */  
+
+  #container {
+    float: left;
+    width: 100%;
+    overflow: auto;
+  }
+  #content {
+    width: 99%;
+    margin: 0 0px 0 0px;
+  }
+
+  .alignleft, img.alignleft, .alignright, img.alignright {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+
+  #primary,
+  #secondary {
+    clear: both;
+    float: left;
+    overflow: hidden;
+    width: 99%; 
+    }
 }
 
 
