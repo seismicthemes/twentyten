@@ -82,6 +82,11 @@ if ( ! function_exists( 'twentyten_setup' ) ) :
 		// This theme uses post thumbnails
 		add_theme_support( 'post-thumbnails' );
 
+		/**
+		 * Let WP handle the title tag
+		 */
+		add_theme_support( 'title-tag' );
+
 		// Add default posts and comments RSS feed links to head
 		add_theme_support( 'automatic-feed-links' );
 
@@ -148,8 +153,8 @@ if ( ! function_exists( 'twentyten_setup' ) ) :
 			define( 'HEADER_IMAGE', $custom_header_support['default-image'] );
 			define( 'HEADER_IMAGE_WIDTH', $custom_header_support['width'] );
 			define( 'HEADER_IMAGE_HEIGHT', $custom_header_support['height'] );
-			add_custom_image_header( '', $custom_header_support['admin-head-callback'] );
-			add_custom_background();
+			add_theme_support( 'custom-header', $custom_header_support['admin-head-callback'] );
+			add_theme_support('custom-background');
 		}
 
 		/*
@@ -653,3 +658,16 @@ function twentyten_widget_tag_cloud_args( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'twentyten_widget_tag_cloud_args' );
+
+
+/**
+ * Tell WordPress to add our stylesheets to the head.
+ */
+function twentyten_theme_scripts() {
+	wp_enqueue_style('twentyten-style', get_bloginfo('stylesheet_url'), false, '2.4');
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action('wp_enqueue_scripts', 'twentyten_theme_scripts');
+
