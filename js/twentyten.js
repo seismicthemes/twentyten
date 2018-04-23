@@ -1,11 +1,26 @@
 jq2 = jQuery.noConflict();
 jq2(function( $ ) {
+  // infinite scrolling
   $('#container').infiniteScroll({
     path: '#nav-below .nav-previous a',
     append: '#content',
     history: false,
+    hideNav: '#nav-below'
   });
 
+  // load part of page
+  var comp = new RegExp(location.host);
+  $('#wrapper').on('click', 'a', function(e) {
+    var clicked_url = $(this).attr('href');
+    if(comp.test(clicked_url)){
+      // local link clicked, do an ajax load
+      e.preventDefault();
+      console.log(clicked_url);
+      $("#container").load(clicked_url + " #container");
+    }
+  })
+
+  // toggle the menu
   var $masthead = $( '#masthead' ),
     timeout = false;
 
